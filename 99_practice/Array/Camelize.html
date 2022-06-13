@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 编写函数 camelize(str) 将诸如 “my-short-string” 之类的由短划线分隔的单词变成骆驼式的 “myShortString”。
+        function camelize(str) {
+            // 将字符串分割为数组
+            let arr = str.split('-')
+            // 得到除开第一项的新数组arr1
+            let arr1 = arr.slice(1)
+            // 将arr1进行转换,每个元素的首字母大写
+            arr1 = arr1.map((item) => {
+                // 将每个item按字母分割成数组
+                let itemArr = item.split('')
+                // 将数组首个元素转化为大写
+                itemArr[0] = itemArr[0].toUpperCase()
+                // 转换为字符串
+                item = itemArr.join('')
+                return item
+            })
+            // 将转换好的新数组与第一项拼接,得到除第一项外都首字母大写的数组
+            // arr = arr[0].concat(arr1) 错误写法，arr[0]为字符串，将arr转换为字符串了
+            arr.splice(1, arr.length - 1)
+            arr = arr.concat(arr1)
+            console.log(arr);
+
+            // 正确写法二，利用扩展运算符实现数组拼接
+            // arr = [arr[0], ...arr1]
+
+            // 返回处理好的数组转换的字符串
+            let camelStr = arr.join('')
+            return camelStr
+        }
+        camelize("my-short-string")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数 filterRangeInPlace(arr, a, b)，该函数获取一个数组 arr，并删除其中介于 a 和 b 区间以外的所有值。检查：a ≤ arr[i] ≤ b。
+        // 该函数应该只修改数组。它不应该返回任何东西。
+        function filterRangeInPlace(arr, a, b) {
+            deleteArr = arr.filter((item) => {
+                return item < a || item > b
+            })
+            console.log(deleteArr);
+
+        }
+        let arr = [5, 3, 8, 1];
+
+        filterRangeInPlace(arr, 1, 4); // 删除了范围在 1 到 4 之外的所有值
+
+        // alert(arr); // [3, 1]
+
+
+    </script>
+</body>
+
+</html>
